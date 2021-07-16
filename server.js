@@ -1,6 +1,6 @@
 
 let SECRET = process.env.SECRET||'dfhjfhjdfd'
-let PORT = process.env.PORT||3000
+let PORT = process.env.PORT||4000
 /////;/
 let path = require('path');
 let mongoose = require('mongoose')
@@ -11,25 +11,27 @@ let io = require('socket.io')(http)
 let bcrypt = require('bcrypt')
 let MongoStore = require('connect-mongo')
 let session = require('express-session')
-({secret: ,
+({secret: SECRET,
 resave: false,
 saveUninitialized: true,
-store: MongoStore.create({ mongoUrl: 'mongodb://localhost/currency' }),
+store: MongoStore.create({ mongoUrl: 'mongodb://localhost/currency:27107' }),
 cookie: { secure: false, maxAge:60*60*1000 }})
 
-
+// store: MongoStore.create({ mongoUrl: 'mongodb://localhost/currency:27107' }),
 //ap uses
-ap.use(express.json())
-ap.use(express.urlencoded({extended:false}))
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 app.use(session)
 
 
 
-
+app.get('/',(req,res)=>{
+    req.session.p =10
+    res.send('')
+})
 
 //////
-mongoose.connect('mongodb://localhost/currency',{useUnifiedTopology:true}).then(()=>{
-    app.listen(3000,()=>{
-        console.log('listening on');
-    })
+mongoose.connect('mongodb://localhost:27017/currency',{useUnifiedTopology:true})
+http.listen(PORT,()=>{
+    console.log(`listening on ${PORT}`);
 })

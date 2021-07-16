@@ -17,8 +17,9 @@ saveUninitialized: true,
 store: MongoStore.create({ mongoUrl: 'mongodb://localhost/currency:27107' }),
 cookie: { secure: false, maxAge:60*60*1000 }})
 
-// store: MongoStore.create({ mongoUrl: 'mongodb://localhost/currency:27107' }),
-//ap uses
+
+app.set('view engine','ejs')
+ap.set('views',)
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.use(session)
@@ -30,7 +31,7 @@ app.get('/',(req,res)=>{
     res.send('')
 })
 
-//////
+
 mongoose.connect('mongodb://localhost:27017/currency',{useUnifiedTopology:true})
 http.listen(PORT,()=>{
     console.log(`listening on ${PORT}`);

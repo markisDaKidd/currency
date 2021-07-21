@@ -10,20 +10,31 @@
 <body>
 
     <header>
-        <p style='display:inline-block'>currency</p>
-        <form action="/login" method="post" id='loginform'>
-            <input type="text" name="user" id="user" required placeholder="username">
-            <input type="password" name="pass" id="pass" required placeholder="password">
-        </form>
+        <p style='display:inline-block;margin-top: 10px;'>currency</p>
+
+        <div class = 'form_container'>
+            <form action="/login" method="post" id='loginform'>
+                <input type="text" name="user" id="user" required placeholder="username">
+                <input type="password" name="pass" id="pass" required placeholder="password">
+                <input id ='login_button' type="submit" value="login">&nbsp;|
+                <input id ='register_button' formaction ='/register' type="submit" value="register">
+            </form>
+        </div>
     </header>
 
     <main>
 
     </main>
 
-    <script src="index.js"></script>
+    <footer>
+        <h1>contact us</h1>
+       
+    </footer>
 
-    <footer></footer>
+    <script defer src="index.js"></script>
+
+
+    
     
 </body>
 </html>

@@ -20,7 +20,7 @@ cookie: { secure: false, maxAge:60*60*1000 }})
 
 app.use(express.static('src'))
 app.set('view engine','ejs')
-app.set('views',)
+app.set('views',path.join(__dirname,'./src','views'))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.use(session)
@@ -55,6 +55,19 @@ app.post('/register',(req,res)=>{
         }
         else{
             return
+        }
+    })
+})
+app.post('/login',(req,res)=>{
+    User.findOne({username:req.body.user},(err,result)=>{
+        if(err)throw err
+        else{
+            bcrypt.compare(req.body.pass,result.password,(err,result)=>{
+                if(err) throw err
+                else{
+                    res.render('login',{username:req.body.user})
+                }
+            })
         }
     })
 })

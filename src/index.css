@@ -35,9 +35,14 @@ header{
     margin: 0px;
 }
 .logcontainer{
-    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    margin-right: 100px;
 }
 
+.logcontainer:hover{
+    color: white;
+}
 
 input{
     display: inline-block;

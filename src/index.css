@@ -21,7 +21,7 @@ header{
 
 .form_container{
     margin-top: 1px;
-    margin-right: 100px;
+    margin-right: 30px;
     float: right;
 }
 [name ='user'], [name ='pass']{
@@ -29,18 +29,36 @@ header{
     padding:10px
 }
 
+#usertext{
+    float: right;
+    margin-right:20px
+}
+
 #login_button,#register_button{
+    
+    color: #fca311;
+    padding: 0px;
+    margin: 0px;
+}
+#logout_button{
+    float: right;
     color: #fca311;
     padding: 0px;
     margin: 0px;
 }
 .logcontainer{
     float: right;
-    margin-top: 10px;
-    margin-right: 100px;
+    margin-top: 10px;   
 }
 
-.logcontainer:hover{
+.logcontainerejs{
+    float: right;
+    margin-top: 10px;
+    margin-right: 40px;
+    
+}
+
+#usertext:hover,#logout_button:hover{
     color: white;
 }
 
@@ -58,4 +76,17 @@ footer{
     color:#fca311;
     bottom: 0;
     width: 100%;
+}
+
+section{
+    color:#fca311;
+    background-color:#14213d;
+    width: 90%;
+    margin:20px;
+    border: 3px solid #14213d ;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+body{
+    background-color: #e5e5e5;
 }

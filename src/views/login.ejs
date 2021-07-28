@@ -11,13 +11,21 @@
 
     <header>
         <p style='display:inline-block;margin-top: 10px;'>currency</p>
-            <div class ='logcontainer'>
-
-                <p><%= username %> </p>
+            <div class ='logcontainerejs'>
+                
+                <form style='float:right' action="/logout" method="post">
+                    <button  id='logout_button'>logout</button>
+                </form>
+                <p id ='usertext'><%- username %> </p>
+                
             </div>  
     </header>
 
     <main>
+        <% for (i of alerts) {%>
+            <section >boom</section>
+
+        <%}%>
 
     </main>
 

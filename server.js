@@ -35,7 +35,7 @@ app.use(session)
 app.get('/',(req,res)=>{
     console.log(req.cookies.user)
     if(req.signedCookies.user){
-        return res.render('login',{username:req.signedCookies.user.username,alerts:[0,1,2]})
+        return res.render('login',{username:req.signedCookies.user.username,alerts:req.signedCookies.user.alerts})
     }
     
     res.sendFile(path.join(__dirname,'./src','/home.html'))
@@ -78,7 +78,7 @@ app.post('/login',body('user').trim().escape(),(req,res)=>{
         else{
             bcrypt.compare(req.body.pass,result.password,(err,result)=>{
                 if(err) throw err
-                else return res.cookie('user',{username:req.body.user,alerts:[]},{maxAge:60*60*500,signed:true,httpOnly:true}).render('login',{username:req.body.user,alerts:[0,1,2]})
+                else return res.cookie('user',{username:req.body.user,alerts:[0,1,2,3,4,5]},{maxAge:60*60*500,signed:true,httpOnly:true}).render('login',{username:req.body.user,alerts:[0,1,2,3,4,5]})
             })
         }
     })
